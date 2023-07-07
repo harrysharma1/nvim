@@ -19,16 +19,32 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch','diff','diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'filetype','location'},
-    lualine_y = {'progress','searchcount'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {
+            {
+                'filename',
+                file_status = true,     
+                newfile_status = false,  
+                path = 3,              
+                shorting_target = 20, 
+                                   
+                symbols = {
+                  modified = '[+]',     
+                  readonly = '[-]',     
+                  unnamed = '[No Name]',
+                  newfile = '[New]',        
+               }
+            },
+            
+    },
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress','location'},
     lualine_z = {
-    {
-      'datetime',
-      style = 'uk',
+        {
+            'datetime',
+            style = 'uk'
+        }
     }
-  }
   },
   inactive_sections = {
     lualine_a = {},
@@ -38,12 +54,8 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {               
-  },
-  winbar = {
-        
-  },
+  tabline = {},
+  winbar = {},
   inactive_winbar = {},
   extensions = {}
 }
-
