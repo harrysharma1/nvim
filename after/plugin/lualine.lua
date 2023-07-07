@@ -1,7 +1,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'iceberg_dark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -21,29 +21,13 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {
-            {
-                'filename',
-                file_status = true,     
-                newfile_status = false,  
-                path = 3,              
-                shorting_target = 20, 
-                                   
-                symbols = {
-                  modified = '[+]',     
-                  readonly = '[-]',     
-                  unnamed = '[No Name]',
-                  newfile = '[New]',        
-               }
-            },
-            
+          
     },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress','location'},
     lualine_z = {
-        {
-            'datetime',
-            style = 'uk'
-        }
+        'selectioncount',
+        'searchcount',
     }
   },
   inactive_sections = {
@@ -54,7 +38,36 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {},
+  tabline = {
+     lualine_a = {},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {
+        {
+                'filename',
+                file_status = true,     
+                newfile_status = false,  
+                path = 2,    
+                shorting_target = 40, 
+                                   
+                symbols = {
+                  modified = '[+]',     
+                  readonly = '[-]',     
+                  unnamed = '[No Name]',
+                  newfile = '[New]',        
+               }
+            }, 
+
+},
+    lualine_z = {
+        {
+            'datetime',
+            style='uk'
+        }
+    }
+
+  },
   winbar = {},
   inactive_winbar = {},
   extensions = {}
