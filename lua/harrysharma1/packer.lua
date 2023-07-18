@@ -57,4 +57,8 @@ return require('packer').startup(function(use)
 
   use ('ryanoasis/vim-devicons')
   use { 'feline-nvim/feline.nvim', branch = '0.5-compat' }
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+  end}
+
   end)
