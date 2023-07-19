@@ -57,4 +57,4 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
-
+vim.keymap.set("n","<leader>il",vim.cmd.Mason)
