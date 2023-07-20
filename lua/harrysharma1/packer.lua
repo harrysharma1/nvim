@@ -60,7 +60,7 @@ return require('packer').startup(function(use)
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
   end}
-use {
+  use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     requires = { 
@@ -69,5 +69,12 @@ use {
       "MunifTanjim/nui.nvim",
     }
   }
+  -- install without yarn or npm
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
+
+use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
 end)
